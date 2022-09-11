@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="card" style="width: 10rem; bakcground=orange">
+    <a href="http://127.0.0.1:8000/admin/" , target="_main" class="btn btn-primary">Admin Login</a>
+</div>
+
+<hr>
+    <h1>Products</h1>
+<hr>
+    <div class="row">
+        {% for product in products %}
+            <div class="col">
+                <div class="card" style="width: 18rem; background: lightgrey">
+                    <img class="card-img-top" src="{{ product.image }}" alt="Card image cap" height="200" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">Rs. {{ product.price }}/KG</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+<hr>
+    <h1>Offers</h1>
+<hr>
+    <div class="row">
+        {% for offer in offers %}
+            <div class="col">
+                <div class="card" style="width: 18rem; background: violet">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ offer.code }}</h5>
+                        <p class="card-text">{{ offer.description }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
